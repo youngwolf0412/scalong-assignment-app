@@ -32,7 +32,7 @@ export default function Home() {
             </p>
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
               <p className="text-blue-800">
-                Once authenticated, you'll be able to chat with an AI assistant
+                Once authenticated, youll be able to chat with an AI assistant
                 powered by OpenAI technology.
               </p>
             </div>

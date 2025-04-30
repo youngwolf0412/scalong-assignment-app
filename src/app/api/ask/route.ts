@@ -2,7 +2,7 @@ import { openai } from "@ai-sdk/openai";
 import { streamText } from "ai";
 import { NextRequest } from "next/server";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 // Define a type for the message structure
 interface ChatMessage {
@@ -38,8 +38,10 @@ export async function POST(req: NextRequest) {
       maxTokens: 800,
     });
 
-    // Return the stream
-    return new Response(stream);
+    // Use the built-in streaming response from Next.js
+    // The AI SDK's streamText function returns an object compatible
+    // with Response's body parameter when JSON stringified
+    return Response.json(stream);
   } catch (error) {
     console.error("Error in ask API:", error);
     return new Response(

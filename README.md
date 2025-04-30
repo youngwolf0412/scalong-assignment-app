@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Scalong AI Chat Application
+
+A modern Next.js application that integrates OpenAI's GPT models to provide an AI chat experience. Users can sign in with their GitHub accounts and engage in conversations with an AI assistant.
+
+## Features
+
+- **GitHub Authentication**: Secure user authentication using NextAuth.js with GitHub provider
+- **AI Chat Interface**: Interactive chat UI powered by OpenAI's GPT-3.5 Turbo model
+- **Streaming Responses**: Real-time streaming of AI responses for a natural conversation flow
+- **Responsive Design**: Built with Tailwind CSS for a responsive and modern UI
+
+## Tech Stack
+
+- **Framework**: Next.js 15.3.1
+- **Language**: TypeScript
+- **Authentication**: NextAuth.js
+- **AI Integration**: OpenAI API via AI SDK
+- **Styling**: Tailwind CSS
+- **Frontend**: React 19
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js (LTS version recommended)
+- npm or yarn
+- GitHub OAuth credentials
+
+### Environment Setup
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```
+# Next Auth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key
+
+# GitHub OAuth
+GITHUB_ID=your-github-client-id
+GITHUB_SECRET=your-github-client-secret
+
+# OpenAI
+OPENAI_API_KEY=your-openai-api-key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/youngwolf0412/scalong-assignment-app.git
+   cd nextjs-app
+   ```
 
-## Learn More
+2. Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Run the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-## Deploy on Vercel
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+  app/                  # App Router
+    api/                # API Routes
+      ask/              # AI Chat API
+      auth/             # Authentication API
+    auth/               # Auth Pages
+    page.tsx            # Home Page
+    layout.tsx          # Root Layout
+  components/           # React Components
+    AuthNavigation.tsx  # Auth UI Component
+    ChatComponent.tsx   # Chat UI Component
+    providers/          # Context Providers
+```
+
+## Usage
+
+1. Visit the home page
+2. Sign in with your GitHub account
+3. Start chatting with the AI assistant
+4. The AI will respond in real-time using OpenAI's language model
+
+## Deployment
+
+This Next.js app is ready for deployment on platforms like Vercel:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+## License
+
+[MIT](LICENSE)
+
+## Acknowledgements
+
+- OpenAI for providing the AI models
+- Next.js team for the amazing framework
+- Tailwind CSS for the styling utilities

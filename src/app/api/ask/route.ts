@@ -4,6 +4,12 @@ import { NextRequest } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 
+// Define a type for the message structure
+interface ChatMessage {
+  role: string;
+  content: string;
+}
+
 export async function POST(req: NextRequest) {
   try {
     // Check if user is authenticated
@@ -24,7 +30,7 @@ export async function POST(req: NextRequest) {
     // Create the stream
     const stream = await streamText({
       model: openai("gpt-3.5-turbo"),
-      messages: messages.map((message: any) => ({
+      messages: messages.map((message: ChatMessage) => ({
         role: message.role,
         content: message.content,
       })),
